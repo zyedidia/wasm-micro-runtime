@@ -4,6 +4,7 @@
  */
 
 #include "platform_api_vmcore.h"
+#include <sys/mman.h>
 
 #ifndef BH_ENABLE_TRACE_MMAP
 #define BH_ENABLE_TRACE_MMAP 0
