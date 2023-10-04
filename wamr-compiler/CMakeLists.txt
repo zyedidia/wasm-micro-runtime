@@ -136,7 +136,13 @@ endif()
 
 # Enable LLVM
 if (NOT WAMR_BUILD_WITH_CUSTOM_LLVM)
-  set (LLVM_SRC_ROOT "/usr/lib/cmake/llvm")
+  execute_process (
+    COMMAND bash -c "llvm-config --cmakedir"
+    OUTPUT_VARIABLE LLVM_CMAKEDIR
+  )
+  string(STRIP ${LLVM_CMAKEDIR} LLVM_CMAKEDIR)
+
+  set (LLVM_SRC_ROOT ${LLVM_CMAKEDIR})
   if (WAMR_BUILD_PLATFORM STREQUAL "windows")
     if (NOT EXISTS "${LLVM_SRC_ROOT}/win32build")
       message (FATAL_ERROR "Cannot find LLVM dir: ${LLVM_SRC_ROOT}/win32build")
