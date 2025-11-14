@@ -1,3 +1,22 @@
+To build WAMR:
+
+```
+cd wamr-compiler
+mkdir build && cd build
+cmake .. -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DWAMR_BUILD_TARGET=aarch64
+ninja
+```
+
+To build iwasm:
+
+```
+cd product-mini/platforms/linux
+mkdir build && cd build
+cmake .. -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+ninja
+```
+
+
 # WebAssembly Micro Runtime
 
 

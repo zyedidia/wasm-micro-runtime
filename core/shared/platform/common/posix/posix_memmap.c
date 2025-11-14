@@ -4,6 +4,7 @@
  */
 
 #include "platform_api_vmcore.h"
+#include <sys/mman.h>
 
 #if defined(__APPLE__) || defined(__MACH__)
 #include <libkern/OSCacheControl.h>
